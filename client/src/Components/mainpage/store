@@ -1,0 +1,237 @@
+ <>
+        <div className="details">
+          {/* <div className="box">
+          <div className="scoreInfo">
+            <div className="scoreCard">
+              <div>{result}</div>
+            </div>
+          </div>
+        </div> */}
+
+          <div className="score-counter">
+            <div className="player-counter">
+              <div className="head">Your Score</div>
+              <div className="score">{playerScore}</div>
+            </div>
+            <div className="cpu-counter">
+              <div className="head">Opponent &nbsp;Score</div>
+              <div className="score">{cpuScore}</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="body">
+          {/* <div className="scoreCard">
+          <div>
+            icon
+          </div>
+        </div> */}
+
+          <div className="selectionItems">
+            {/* PLAYER  */}
+            <div className="selection">
+              <h2>Make Your Choice</h2>
+              {disable === true ? (
+                <>
+                  <div className="list">
+                    <button id="rock" onClick={() => playerOneAction(0)}>
+                      <Rock />
+                      <audio
+                        id="audio"
+                        src="https://assets.mixkit.co/sfx/preview/mixkit-player-jumping-in-a-video-game-2043.mp3"
+                      ></audio>
+                    </button>
+                  </div>
+                  <div className="list">
+                    <button id="paper" onClick={() => playerOneAction(1)}>
+                      <Paper />
+                    </button>
+                  </div>
+                  <div className="list">
+                    <button id="scissior" onClick={() => playerOneAction(2)}>
+                      <Scissior />
+                    </button>
+                  </div>
+                </>
+              ) : null}
+            </div>
+            {/* battlefield */}
+            {winner ? (
+              <div className="center-field">
+                <div className="winner-name">
+                  {winnerName} <br />
+                  <audio
+                    ref={cpuWin}
+                    src="https://assets.mixkit.co/sfx/preview/mixkit-player-jumping-in-a-video-game-2043.mp3"
+                  />
+                </div>
+                <div className="reset-btn">
+                  <div className="reset-bttn">
+                    <button onClick={reset}>PLAY &nbsp; AGAIN</button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="center-field">
+                {showChoice === true ? (
+                  <>
+                    <div className="heading">BATTLE &nbsp;GROUND</div>
+                    <div className="battleground">
+                      <div className="area">
+                        {rock === true ? (
+                          <>
+                            <div className="choiceR">
+                              <Rock />
+                            </div>
+                            <div className="choice">ROCK</div>
+                          </>
+                        ) : null}
+                        {paper === true ? (
+                          <>
+                            <div className="choiceP">
+                              <Paper />
+                            </div>
+                            <div className="choice">PAPER</div>
+                          </>
+                        ) : null}
+                        {scissior === true ? (
+                          <>
+                            <div className="choiceS">
+                              <Scissior />
+                            </div>
+                            <div className="choice">SCISSIOR</div>
+                          </>
+                        ) : null}
+                      </div>
+
+                      <span style={{ color: "rgb(209, 83, 181)" }}>V / S</span>
+
+                      <div className="area">
+                        {" "}
+                        {cpuRock === true ? (
+                          <>
+                            <div className="choiceR">
+                              <Rock />
+                            </div>
+                            <div className="choice">ROCK</div>
+                          </>
+                        ) : null}
+                        {cpuPaper === true ? (
+                          <>
+                            <div className="choiceP">
+                              <Paper />
+                            </div>
+                            <div className="choice">PAPER</div>
+                          </>
+                        ) : null}
+                        {cpuScissior === true ? (
+                          <>
+                            <div className="choiceS">
+                              <Scissior />
+                            </div>
+                            <div className="choice">SCISSIOR</div>
+                          </>
+                        ) : null}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="heading">BATTLE &nbsp;GROUND</div>
+                    <div className="battleground">WELCOME !</div>
+                  </>
+                )}
+                {result !== "" && (
+                  <>
+                    <div className="box">
+                      <div className="scoreInfo">
+                        <div className="scoreCard">
+                          <div>{result}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+
+            {/* CPU */}
+            <div className="selection">
+              <h2>OPPONENT </h2>
+              {disable === true ? (
+                <>
+                  {" "}
+                  <div className="list">
+                    <button id="Orock" onClick={() => playerTwoAction(0)}>
+                      <Rock />
+                    </button>
+                  </div>
+                  <div className="list">
+                    <button id="Opaper" onClick={() => playerTwoAction(1)}>
+                      <Paper />
+                    </button>
+                  </div>
+                  <div className="list">
+                    <button id="Oscissior" onClick={() => playerTwoAction(2)}>
+                      <Scissior />
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="btmBody">
+          <div className="reset">
+            <button onClick={reset}>Restart</button>
+          </div>
+          <div className="reset">
+            {showRules === false ? (
+              <button className="rules" onClick={ruleImage}>
+                Rules
+              </button>
+            ) : null}
+          </div>
+        </div>
+        {showRules === true ? (
+          // <div className="rule-div">
+          //   <div className="resett">
+          //     <div className="cancel-btn"><button className="ruless" onClick={() => setShowRules(false)}>
+          //       Hide
+          //     </button></div>
+
+          //   </div>
+          //   <span id="rule-image">
+          //     <img src={rules} alt="" />
+          //   </span>
+          // </div>
+
+          <div
+            className="overlay"
+            onClick={() => {
+              setShowRules(false);
+            }}
+          >
+            <div className="show-rule">
+              <div className="cancel-btn">
+                <button onClick={() => setShowRules(false)}>
+                  <Cancel />
+                </button>
+              </div>
+              <div className="rule-desc">
+                <img src={rules} alt="" />
+                <br />
+                <br />
+                &#x2666; &nbsp; Rock beats Scissors. <br />
+                <br />
+                &#x2666; &nbsp; Paper beats Rock. <br />
+                <br />
+                &#x2666;&nbsp; Scissors beats Paper.
+              </div>
+            </div>
+          </div>
+        ) : null}
+        <div className="footer"></div>
+      </>

@@ -1,0 +1,26 @@
+.navbar{
+    width: 100%;
+    border: 5px solid rgb(84,100,125);
+    border-radius:8px;
+    padding: 10px;
+    font-size: 3.5rem;
+    margin-top: 3%;
+}
+#one{
+    /* margin-top: 1%;
+    margin-bottom: 1%; */
+    color: rgba(55, 85, 238, 0.795);
+}
+#two{
+    /* margin-top: 1%;
+    margin-bottom: 1%; */
+    color: rgba(233, 161, 37, 0.711);
+}
+#three{
+    /* margin-top: 1%;
+    margin-bottom: 1%; */
+    color: rgba(215, 37, 70, 0.827);
+}
+
+
+
